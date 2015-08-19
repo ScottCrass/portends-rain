@@ -10,3 +10,17 @@ Why or why not? If not, how would you go about making it safe?
 
 The statement is not safe to run because of the constant barrage of SQL injection attempts. Relevant XKCD: https://xkcd.com/327/
 You would use either a prepared statement or a stored procedure. At ADF&G we use stored procedures for every query run by the public facing website.
+
+SQL Query:
+
+SELECT
+        p.permission,
+        p.description
+from 
+        user u
+        join user_role ur on u.user_id = ur.user_id
+        join role r on ur.role_id = r.role_id 
+        join role_permission rp on r.role_id = rp.role_id
+        join permission p on rp.permission_id = p.permission_id 
+where
+        u.username='avouser'
