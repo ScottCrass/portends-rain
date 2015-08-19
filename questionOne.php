@@ -1,14 +1,13 @@
 <?php
-//incomplete
-function atoi($myString)
-{
-$result = 0;
-$x = 0;
-for ($x = 0; $myString['x'] != '\0'; $x++) {
-    $result = $result*10 + $myString['x'] -'0'; 
-} 
-return $result;
-}
-echo atoi('910');
-
+  function atoi($myString)
+   {
+     $result = 0;
+     for($i=0;$i<strlen($myString);$i++)
+     {
+        $result= $result*10 + $myString[$i] - '0';
+     }
+     return $result;
+    }
+    //That's the combinatoion on my luggage! 
+    echo atoi('12345');
 ?>
