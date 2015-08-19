@@ -1,5 +1,5 @@
 Explain the difference between an INNER JOIN and a LEFT JOIN.
-Assuming you have two tables, Table A and Table B, An Inner join returns all of the records in Table A that have a matching record in Table B. A Left Join will return all of the Records in Table A and matching records in Table B.
+Assuming you have two tables: Table A and Table B. An Inner join returns all of the records in Table A that have a matching record in Table B. A Left Join will return all of the Records in Table A and matching records in Table B.
 
 What is an index? Why are they needed?
 Indexes are needed for two things, fast lookups and policing the database constraints. Databases usually implicitly create an index on tables: the Primary Key. 
@@ -9,7 +9,13 @@ INSERT INTO mytable (column1, column2) VALUES ($_POST[‘var1’], $_POST[‘var
 Why or why not? If not, how would you go about making it safe?
 
 The statement is not safe to run because of the constant barrage of SQL injection attempts. Relevant XKCD: https://xkcd.com/327/
-You would use either a prepared statement or a stored procedure. At ADF&G we use stored procedures for every query run by the public facing website.
+You would use either a prepared statement or a stored procedure. At ADF&G we use stored procedures for every query run by the public facing website. You should probably also sanitize your database inputs to prevent XSS as well as you will usually display the results to a user at some point.
+PDO prepared statement would look something like this: 
+$stmt = $conn->prepare("INSERT INTO mytable (column1, column2) 
+    VALUES (:var1, :var2)");
+    $stmt->bindParam(':var1', $_POST[‘var1’]);
+    $stmt->bindParam(':var2', $_POST[‘var2’]);
+$stmt->execute();
 
 SQL Query:
 
