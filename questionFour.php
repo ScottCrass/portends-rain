@@ -1,5 +1,3 @@
-//TODO: optimize for low values of m. hint: Case statement
-
 <?php
 function ackermann( $m , $n )
 {
@@ -15,5 +13,5 @@ function ackermann( $m , $n )
 }
  
 echo ackermann( 3, 5 );
-
+//http://codepad.viper-7.com/hK7Evs
 ?>
