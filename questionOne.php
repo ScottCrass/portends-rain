@@ -4,7 +4,8 @@
      $result = 0;
      for($i=0;$i<strlen($myString);$i++)
      {
-        $result= $result*10 + $myString[$i] - '0';
+       //bitshift instead of multiplication ie: result = result*2^3 + result*2^1
+        $result= ($result<<3)+($result<<1) + $myString[$i] - '0';
      }
      return $result;
     }
