@@ -8,6 +8,6 @@
      }
      return $result;
     }
-    //That's the combinatoion on my luggage! 
+    //That's the combination to my luggage! 
     echo atoi('12345');
 ?>
