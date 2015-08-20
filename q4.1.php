@@ -1,3 +1,5 @@
+//memoized ackermanns function.
+
 <?php
 $memoize = function($func)
 {
